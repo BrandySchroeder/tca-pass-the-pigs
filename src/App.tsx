@@ -6,13 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-const Home = () => {
-  return (
-    <h3>
-      Home
-    </h3>
-  );
-};
+import { Home } from './Home';
 
 const Setup = () => {
   return (
