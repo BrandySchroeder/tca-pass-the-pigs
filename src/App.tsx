@@ -6,21 +6,49 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+const Home = () => {
+  return (
+    <h3>
+      Home
+    </h3>
+  );
+};
 
-function App() {
+const Setup = () => {
+  return (
+    <h3>
+      Setup
+    </h3>
+  );
+};
+
+const Play = () => {
+  return (
+    <>
+    <h3>
+      Play
+    </h3>
+    <p>
+      Play the game and tap the app!!
+    </p>
+    </>
+  );
+};
+
+const App = () => {
 
   const router = createHashRouter([
     {
       path: "/",
-      element: <h3>Home</h3>,
+      element: <Home />
     },
     {
       path: "/setup",
-      element: <h3>Setup</h3>,
+      element: <Setup />
     },
     {
       path: "/play",
-      element: <h3>Play</h3>,
+      element: <Play />,
     },
   ]);
 
