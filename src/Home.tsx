@@ -8,8 +8,6 @@ interface HomeProps {
     
 export const Home: FC<HomeProps> = ({ leaderboardData }) => {
 
-    console.log(leaderboardData);
-
     const nav = useNavigate();
 
     return (
@@ -49,7 +47,9 @@ export const Home: FC<HomeProps> = ({ leaderboardData }) => {
                                     <tbody>
                                         {
                                             leaderboardData.map(lbe => (
-                                                <tr>
+                                                <tr
+                                                key={lbe.name}
+                                                >
                                                     <td>{ lbe.wins }</td>
                                                     <td>{ lbe.losses }</td>
                                                     <td>{ lbe.avg.toFixed(3) }</td>
