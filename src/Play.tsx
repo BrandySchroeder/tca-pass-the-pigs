@@ -36,7 +36,7 @@ export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
                 Done
             </button>
             <p
-            text-sm
+                className="text-xs"
             >
                 Play the game and tap the app!!
             </p>
