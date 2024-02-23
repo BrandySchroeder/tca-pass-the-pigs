@@ -56,6 +56,8 @@ const App = () => {
 
   const [gameResults, setGameResults] = useState<GameResult[]>(dummyGameResults);
 
+  const [title, setTitle] = useState("Pass The Pigs Companion App");
+
   const addNewGameResult = (result: GameResult) => setGameResults( 
   [
     ...gameResults
@@ -84,11 +86,25 @@ const App = () => {
 
   return (
     <div 
-      className="App p-3"
+      className="App"
     >
-      <RouterProvider 
-        router={router} 
-      />
+      <div
+        className='navbar bg-base-300'
+      >
+        <span
+          className='text-lg font-bold'
+        >
+          { title }
+        </span>
+      </div>
+      <div
+      className='p-3'
+      >
+        <RouterProvider 
+            router={router} 
+          />
+      </div>
+
     </div>
   );
 }
