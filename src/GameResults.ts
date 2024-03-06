@@ -16,6 +16,13 @@ export type LeaderboardEntry = {
     name: string;
 };
 
+export type GeneralFacts = {
+    totalGames: number;
+    lastPlayed: string;
+    shortestGame: string;
+    longestGame: string;
+};
+
 //
 //Exported functions
 //
@@ -46,6 +53,36 @@ export const getLeaderboard = (results: GameResult[]): LeaderboardEntry[] => {
         // i-o-g
         (a, b) => (b.avg * 1000 + b.wins + b.losses) - (a.avg * 1000 + a.wins + a.losses)
     );
+};
+
+export const getGeneralFacts = (results: GameResult[]): GeneralFacts => {
+    
+    const now = Date.now();
+
+    const gameEndDatesInMilliseconds = results.map(
+        x => Date.parse(x.end)
+    );
+
+    const gameDurationsInMilliseconds = results.map(
+        x => Date.parse(x.end) - Date.parse(x.start)
+    );
+
+    return {
+        totalGames: results.length
+        , lastPlayed: (
+            (
+                now - Math.max(...gameEndDatesInMilliseconds)
+            ) / 1000 / 60 / 60 / 24 //days
+            ).toFixed(2)
+        , shortestGame: (
+            Math.min(...gameDurationsInMilliseconds)
+             / 1000 /60 //minutes
+             ).toFixed(2)
+        , longestGame: (
+            Math.max(...gameDurationsInMilliseconds)
+             / 1000 /60 //minutes
+             ).toFixed(2)
+    };
 };
 
 //
