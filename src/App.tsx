@@ -28,6 +28,7 @@ const dummyGameResults: GameResult[] = [
       ]
       , start: "2024-02-28T18:10:32.123Z"
       , end: "2024-02-28T18:15:34.123Z"
+      , totalTurns: 4
   }
   , {
       winner: "John"
@@ -39,6 +40,7 @@ const dummyGameResults: GameResult[] = [
       ]
       , start: "2024-02-28T18:20:32.123Z"
       , end: "2024-02-28T18:35:34.123Z"
+      , totalTurns: 4
   }  
 ];
 
@@ -81,7 +83,6 @@ const App = () => {
     },
   ]);
 
-
   return (
     <div 
       className="App"
@@ -99,7 +100,6 @@ const App = () => {
         <span
           className='text-lg font-bold ml-3'
         >
-
           { title }
         </span>
       </div>
@@ -110,7 +110,6 @@ const App = () => {
             router={router} 
           />
       </div>
-
     </div>
   );
 }

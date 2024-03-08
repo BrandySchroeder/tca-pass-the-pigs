@@ -11,6 +11,8 @@ export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
 
     const [start, setStart] = useState(new Date().toISOString());
     
+    const [turnNumber, setTurnNumber] = useState(1);
+    
     useEffect(   
         () => setTitle("Play Pass The Pigs")
          , []
@@ -33,6 +35,7 @@ export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
                         ]
                         , start: start
                         , end: new Date().toISOString()
+                        , totalTurns: turnNumber
                     });
                     nav(-2);
                 }}
@@ -44,6 +47,15 @@ export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
             >
                 Play the game and tap the app!!
             </p>
+            <p>
+                Current Turn: 1
+            </p>
+            <button
+                className='btn btn-link'
+                onClick={() => setTurnNumber(turnNumber + 1)}
+            >
+                Next Turn
+            </button>
         </div>
     );
   };

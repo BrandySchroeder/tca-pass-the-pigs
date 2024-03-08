@@ -14,6 +14,7 @@ export type GameResult = {
     players: string[];
     start: string;
     end: string;
+    totalTurns: number;
 };
 
 export type LeaderboardEntry = {
