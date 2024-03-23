@@ -14,6 +14,7 @@ import {
   GameResult
   , getLeaderboard
   , getGeneralFacts
+  , getPreviousPlayers
 } from "./GameResults";
 
 const dummyGameResults: GameResult[] = [
@@ -72,6 +73,7 @@ const App = () => {
       path: "/setup",
       element: <Setup 
         setTitle={setTitle}
+        previousPlayers={getPreviousPlayers(gameResults)}
       />
     },
     {
