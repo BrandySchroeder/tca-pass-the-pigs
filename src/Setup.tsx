@@ -30,6 +30,7 @@ export const Setup: FC<SetupProps> = ({
             <button 
             className="btn btn-lg btn-primary"
             onClick={() => nav('/play')}
+            disabled={availablePlayers.filter(x => x.checked).length < 2}
             >
                 Start the Game
             </button>
@@ -47,7 +48,16 @@ export const Setup: FC<SetupProps> = ({
                             >   
                                 <input 
                                     type="checkbox" 
-                                    className="checkbox checkbox-primary" 
+                                    className="checkbox checkbox-primary"
+                                    checked={x.checked} 
+                                    onChange={() => setAvailablePlayers([
+                                        ...availablePlayers.map(y => ({
+                                            name: y.name
+                                            , checked: y.name === x.name
+                                                ? !y.checked
+                                                : y.checked
+                                        }))
+                                    ])}
                                 />
                                 <span 
                                     className="label-text ml-3"
