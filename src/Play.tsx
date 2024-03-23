@@ -4,10 +4,15 @@ import { FC, useEffect, useState } from 'react';
 
 interface PlayProps {
     addNewGameResult: (result: GameResult) => void;
-    setTitle: (t: string) => void;
+    setTitle: (title: string) => void;
+    chosenPlayers: string[];
 }
 
-export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
+export const Play: FC<PlayProps> = ({ 
+    addNewGameResult
+    , setTitle
+    , chosenPlayers 
+}) => {
 
     const [start, setStart] = useState(new Date().toISOString());
     
@@ -24,24 +29,24 @@ export const Play: FC<PlayProps> = ({ addNewGameResult, setTitle }) => {
         <div
             className='flex flex-col gap-3'
         >
-            <button
+            {chosenPlayers.map(x => (
+                <button
                 className="btn btn-lg btn-primary"
                 onClick={() => {
                     addNewGameResult({
-                        winner: "Tom"
-                        , players: [
-                            "Tom"
-                            , "Taylor"
-                        ]
+                        winner: x
+                        , players: chosenPlayers
                         , start: start
                         , end: new Date().toISOString()
                         , totalTurns: turnNumber
                     });
                     nav(-2);
                 }}
-            >
-                Done
-            </button>
+                >
+                    {x} Won
+                </button>
+            ))}
+
             <p
                 className="text-xs"
             >
