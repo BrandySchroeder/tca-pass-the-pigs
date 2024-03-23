@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface SetupProps {
@@ -9,9 +9,13 @@ interface SetupProps {
 export const Setup: FC<SetupProps> = ({ 
     setTitle
 , previousPlayers
- }) => {
-    console.log(previousPlayers);
-    
+}) => {
+
+    const [availablePlayers, setAvailablePlayers] = useState(previousPlayers.map(x => ({
+        name: x
+        , checked: false
+    })));
+
     useEffect(   
         () => setTitle("Game Setup")
          , []
@@ -29,6 +33,37 @@ export const Setup: FC<SetupProps> = ({
             >
                 Start the Game
             </button>
+            <div
+                className='card bg-base-100 shadow-xl'
+            >
+                {
+                    availablePlayers.map(x => (
+                        <div 
+                            className="form-control"
+                            key={x.name}
+                        >
+                            <label 
+                                className="flex cursor-pointer"
+                            >   
+                                <input 
+                                    type="checkbox" 
+                                    className="checkbox checkbox-primary" 
+                                />
+                                <span 
+                                    className="label-text ml-3"
+                                >
+                                    {x.name}
+                                </span> 
+                            </label>
+                        </div>
+
+                    ))
+                }
+            <div 
+                className='card-body p-3'
+            >
+            </div>
+            </div>                
         </div>
     );
   };
