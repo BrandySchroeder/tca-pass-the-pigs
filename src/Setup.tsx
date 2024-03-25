@@ -18,12 +18,32 @@ export const Setup: FC<SetupProps> = ({
         , checked: false
     })));
 
+    const [newPlayerName, setNewPlayerName] = useState("");
+
     useEffect(   
         () => setTitle("Game Setup")
          , []
     ); 
 
     const nav = useNavigate();
+
+    const validateAndAddNewPlayer = () => {
+        if (
+            newPlayerName.length > 0
+            && !availablePlayers.some(x => x.name.toUpperCase() === newPlayerName.toUpperCase())
+        ) {
+            setAvailablePlayers(
+                [
+                    ...availablePlayers
+                    , {
+                        name: newPlayerName
+                        , checked: true
+                    }
+                ].sort((a, b) => a.name.localeCompare(b.name))
+            );
+                setNewPlayerName("");
+            }
+    };
 
     return (
         <div
@@ -49,18 +69,38 @@ export const Setup: FC<SetupProps> = ({
             <div
                 className='card bg-base-100 shadow-xl'
             >
+                <div
+                    className='card-body p-3'
+                    >
+                    <div
+                        className='flex items-center mb-5'
+                    >
+                        <input 
+                            type="text" 
+                            placeholder="Enter new player name" 
+                            className="input input-bordered w-full max-w-xs"
+                            value={newPlayerName}
+                            onChange={(e) => setNewPlayerName(e.target.value)} 
+                        />
+                        <button
+                            className='btn btn-primary ml-3'
+                            onClick={validateAndAddNewPlayer}
+                        >
+                            Add
+                        </button>
+                    </div>                   
                 {
                     availablePlayers.map(x => (
                         <div 
-                            className="form-control"
+                            className="form-control mb-5"
                             key={x.name}
                         >
                             <label 
-                                className="flex cursor-pointer"
+                                className="flex items-center cursor-pointer"
                             >   
                                 <input 
                                     type="checkbox" 
-                                    className="checkbox checkbox-primary"
+                                    className="checkbox checkbox-lg checkbox-primary"
                                     checked={x.checked} 
                                     onChange={() => setAvailablePlayers([
                                         ...availablePlayers.map(y => ({
@@ -72,7 +112,7 @@ export const Setup: FC<SetupProps> = ({
                                     ])}
                                 />
                                 <span 
-                                    className="label-text ml-3"
+                                    className="label-text text-xl ml-3"
                                 >
                                     {x.name}
                                 </span> 
@@ -84,6 +124,7 @@ export const Setup: FC<SetupProps> = ({
             <div 
                 className='card-body p-3'
             >
+            </div>
             </div>
             </div>                
         </div>
