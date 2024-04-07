@@ -8,6 +8,10 @@ interface PlayProps {
     chosenPlayers: string[];
 }
 
+type CounterState = {
+    count: number;
+}
+
 export const Play: FC<PlayProps> = ({ 
     addNewGameResult
     , setTitle
@@ -17,7 +21,38 @@ export const Play: FC<PlayProps> = ({
     const [start, setStart] = useState(new Date().toISOString());
     
     const [turnNumber, setTurnNumber] = useState(1);
+
+    const [state, setState] = useState<CounterState>({ count: 0 })
+
+    const decrementByOne = () => {
+        setState({ count: state.count - 1 })
+    }
+
+    const incrementByOne = () => {
+        setState({ count: state.count + 1 })
+    }
+
+    const decrementByFive = () => {
+        setState({ count: state.count - 5 })
+    }
+
+    const incrementByFive = () => {
+        setState({ count: state.count + 5 })
+    }
+
+    const decrementByTen = () => {
+        setState({ count: state.count - 10 })
+    }
+
+    const incrementByTen = () => {
+        setState({ count: state.count + 10 })
+    }
+
+    const reset = () => {
+        setState({ count: 0 })
+    }
     
+
     useEffect(   
         () => setTitle("Play Pass The Pigs")
          , []
@@ -37,9 +72,6 @@ const gameOver = (winner: string) => {
     });
     nav(-2);
 }
-const keepScore = () => {
-
-}
 
     return (
       <>
@@ -53,22 +85,29 @@ const keepScore = () => {
                     className='flex items-center mb-5'
                 >
             <h3>Player 1's Points this turn: </h3>
-                <button className="btn btn-secondary">-1</button>
-                
-                <button className="btn btn-secondary">+1</button>
-
-                <button className="btn btn-secondary">-5</button>
-                
-                <button className="btn btn-secondary">+5</button>
-
-                <button className="btn btn-secondary">-10</button>
-                
-                <button className="btn btn-secondary">+10</button>
-
-                <p>Player 1's Total this turn: </p>
-                    </div>
+                <div>
+                    <button onClick={decrementByOne} className="btn btn-secondary m-2">-1</button>
+                    <button onClick={incrementByOne} className="btn btn-secondary m-2">+1</button>
                 </div>
-        </div>
+
+                <div>
+                    <button onClick={decrementByFive} className="btn btn-secondary m-2">-5</button>
+                    <button onClick={incrementByFive} className="btn btn-secondary m-2">+5</button>
+                </div>
+
+                <div>
+                    <button onClick={decrementByTen} className="btn btn-secondary m-2">-10</button>
+                    <button onClick={incrementByTen} className="btn btn-secondary m-2">+10</button>
+                </div>
+
+                <div>
+                    <button onClick={reset} className="btn btn-secondary m-2">Reset</button>
+                </div>
+
+                <h3>Player 1's Total this turn: {state.count}</h3>
+            </div>
+                </div>
+                    </div>
         <div
             className='card bg-base-100 mb-4 shadow-xl'
         >
