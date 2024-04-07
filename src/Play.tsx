@@ -37,7 +37,53 @@ const gameOver = (winner: string) => {
     });
     nav(-2);
 }
+const keepScore = () => {
+
+}
+
     return (
+      <>
+        <div
+            className='card bg-base-100 mb-4 mt-3 shadow-xl'
+        >
+            <div
+                className='card-body p-3'
+            >
+                <div
+                    className='flex items-center mb-5'
+                >
+            <h3>Player 1's Points this turn: </h3>
+                <button className="btn btn-secondary">-1</button>
+                
+                <button className="btn btn-secondary">+1</button>
+
+                <button className="btn btn-secondary">-5</button>
+                
+                <button className="btn btn-secondary">+5</button>
+
+                <button className="btn btn-secondary">-10</button>
+                
+                <button className="btn btn-secondary">+10</button>
+
+                <p>Player 1's Total this turn: </p>
+                    </div>
+                </div>
+        </div>
+        <div
+            className='card bg-base-100 mb-4 shadow-xl'
+        >
+            <div
+                className='card-body p-3'
+            >
+                <div
+                    className='flex items-center mb-5'
+                >
+            <p>Player 1's Total points this game: </p>
+                add up (and subtract) total points for game - running tally
+                    </div>
+                </div>
+        </div>
+
         <div
             className='flex flex-col gap-3'
         >
@@ -67,5 +113,6 @@ const gameOver = (winner: string) => {
                 Next Turn
             </button>
         </div>
+        </>
     );
   };
