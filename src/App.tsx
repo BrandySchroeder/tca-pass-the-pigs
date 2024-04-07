@@ -94,7 +94,7 @@ const App = () => {
       className="App"
     >
       <div
-        className='navbar bg-base-300'
+        className='navbar bg-primary'
       >
         {
           title === AppTitle &&

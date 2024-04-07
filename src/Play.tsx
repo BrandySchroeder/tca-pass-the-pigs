@@ -82,29 +82,33 @@ const gameOver = (winner: string) => {
                 className='card-body p-3'
             >
                 <div
-                    className='flex items-center mb-5'
+                    className='card-actions flex items-center flex-col mb-5'
                 >
-            <h3>Player 1's Points this turn: </h3>
                 <div>
-                    <button onClick={decrementByOne} className="btn btn-secondary m-2">-1</button>
+                    Sider: 1 point each
+                    <button onClick={decrementByOne} className="btn btn-neutral btn-md btn-circle m-2">-1</button>
                     <button onClick={incrementByOne} className="btn btn-secondary m-2">+1</button>
                 </div>
-
+  
                 <div>
-                    <button onClick={decrementByFive} className="btn btn-secondary m-2">-5</button>
+                    Trotter, Razorback: 5 points each
+                    <button onClick={decrementByFive} className="btn btn-neutral btn-md btn-circle m-2">-5</button>
                     <button onClick={incrementByFive} className="btn btn-secondary m-2">+5</button>
                 </div>
-
+  
                 <div>
-                    <button onClick={decrementByTen} className="btn btn-secondary m-2">-10</button>
+                    Snouter: 10 points each
+                    <button onClick={decrementByTen} className="btn btn-neutral btn-md btn-circle m-2">-10</button>
                     <button onClick={incrementByTen} className="btn btn-secondary m-2">+10</button>
                 </div>
-
+        
+                <h3>Player 1's Total this turn: {state.count}</h3>
+                <br></br>
                 <div>
-                    <button onClick={reset} className="btn btn-secondary m-2">Reset</button>
+                    <button onClick={reset} className="btn btn-neutral m-2">Reset</button>
                 </div>
 
-                <h3>Player 1's Total this turn: {state.count}</h3>
+
             </div>
                 </div>
                     </div>
@@ -117,8 +121,8 @@ const gameOver = (winner: string) => {
                 <div
                     className='flex items-center mb-5'
                 >
-            <p>Player 1's Total points this game: </p>
-                add up (and subtract) total points for game - running tally
+            <p>Player so and so's Total points this game: </p>
+                add up (and subtract) total points for game - running tally and list each players current game points
                     </div>
                 </div>
         </div>
@@ -144,7 +148,9 @@ const gameOver = (winner: string) => {
             </p>
             <p>
                 Current Turn: 1
+                //TODO: Instead of counting each turn, change from one player's turn to the next
             </p>
+            
             <button
                 className='btn btn-link'
                 onClick={() => setTurnNumber(turnNumber + 1)}
