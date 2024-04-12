@@ -76,72 +76,42 @@ const gameOver = (winner: string) => {
     return (
       <>
         <div
-            className='card bg-base-100 mb-4 mt-3 shadow-xl'
-        >
-            <div
-                className='card-body p-3'
-            >
-                <div
-                    className='card-actions flex items-center flex-col mb-5'
-                >
-                <div>
-                    Sider: 1 point each
-                    <button onClick={decrementByOne} className="btn btn-neutral btn-md btn-circle m-2">-1</button>
-                    <button onClick={incrementByOne} className="btn btn-secondary m-2">+1</button>
-                </div>
-  
-                <div>
-                    Trotter, Razorback: 5 points each
-                    <button onClick={decrementByFive} className="btn btn-neutral btn-md btn-circle m-2">-5</button>
-                    <button onClick={incrementByFive} className="btn btn-secondary m-2">+5</button>
-                </div>
-  
-                <div>
-                    Snouter: 10 points each
-                    <button onClick={decrementByTen} className="btn btn-neutral btn-md btn-circle m-2">-10</button>
-                    <button onClick={incrementByTen} className="btn btn-secondary m-2">+10</button>
-                </div>
-        
-                <h3>Player 1's Total this turn: {state.count}</h3>
-                <br></br>
-                <div>
-                    <button onClick={reset} className="btn btn-neutral m-2">Reset</button>
-                </div>
-
-
-            </div>
-                </div>
-                    </div>
-        <div
-            className='card bg-base-100 mb-4 shadow-xl'
-        >
-            <div
-                className='card-body p-3'
-            >
-                <div
-                    className='flex items-center mb-5'
-                >
-            <p>Player so and so's Total points this game: </p>
-                add up (and subtract) total points for game - running tally and list each players current game points
-                    </div>
-                </div>
-        </div>
-
-        <div
             className='flex flex-col gap-3'
         >
             {chosenPlayers.map(x => (
-                                <div
-                                    key={x}
-                                className='card bg-base-100 shadow-xl'
-                            >
-                                <div 
-                                    className='card-body p-3'
-                                >
-                                    <h2 className='card-title'
-                                    >
-                                        {x}
-                                    </h2>
+                <div
+                    key={x}
+                    className='card bg-base-100 shadow-xl'
+                >
+                    <div 
+                        className='card-body p-3'
+                    >
+                        <h2 className='card-title'
+                        >
+                            {x}
+                        </h2>
+                        <div>
+                            Sider: 1 point each
+                            <button onClick={decrementByOne} className="btn btn-neutral btn-md btn-circle m-2">-1</button>
+                            <button onClick={incrementByOne} className="btn btn-secondary m-2">+1</button>
+                        </div>
+    
+                        <div>
+                            Trotter, Razorback: 5 points each
+                            <button onClick={decrementByFive} className="btn btn-neutral btn-md btn-circle m-2">-5</button>
+                            <button onClick={incrementByFive} className="btn btn-secondary m-2">+5</button>
+                        </div>
+    
+                        <div>
+                            Snouter: 10 points each
+                            <button onClick={decrementByTen} className="btn btn-neutral btn-md btn-circle m-2">-10</button>
+                            <button onClick={incrementByTen} className="btn btn-secondary m-2">+10</button>
+                        </div>
+                            <h3 className="font-weight: bold">Player 1's Total this turn: {state.count}</h3>
+                            <br></br>
+                        <div>
+                            <button onClick={reset} className="btn btn-neutral m-2">Reset</button>
+                        </div>
                                     <p>
                                         Put other controls here
                                     </p>
@@ -159,6 +129,9 @@ const gameOver = (winner: string) => {
                             </div>
             ))
             }
+            
+            {/* Probably will not need this, since each player's score will be kept on their own card.
+            
             <p>
                 Current Turn: 1
                 //TODO: Instead of counting each turn, change from one player's turn to the next
@@ -168,7 +141,7 @@ const gameOver = (winner: string) => {
                 onClick={() => setTurnNumber(turnNumber + 1)}
             >
                 Next Turn
-            </button>
+            </button> */}
         </div>
         </>
     );
