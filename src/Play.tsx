@@ -19,38 +19,44 @@ export const Play: FC<PlayProps> = ({
 }) => {
 
     const [start, setStart] = useState(new Date().toISOString());
-    
-    const [turnNumber, setTurnNumber] = useState(1);
 
-    const [state, setState] = useState<CounterState>({ count: 0 })
+    //took out turn number - should be able to delete next line
+    //const [turnNumber, setTurnNumber] = useState(1);
 
-    const decrementByOne = () => {
-        setState({ count: state.count - 1 })
-    }
+//Trying Tom's code for point counter buttons - this should keep track of each player's points separately in their own cards
 
-    const incrementByOne = () => {
-        setState({ count: state.count + 1 })
-    }
+    const [playerPoints, setPlayerPoints] = useState<[string, number][]>(chosenPlayers.map (x => [x, 0]));
 
-    const decrementByFive = () => {
-        setState({ count: state.count - 5 })
-    }
+//My code for point counter buttons
+    // const [state, setState] = useState<CounterState>({ count: 0 });
 
-    const incrementByFive = () => {
-        setState({ count: state.count + 5 })
-    }
+    // const decrementByOne = () => {
+    //     setState({ count: state.count - 1 });
+    // }
 
-    const decrementByTen = () => {
-        setState({ count: state.count - 10 })
-    }
+    // const incrementByOne = () => {
+    //     setState({ count: state.count + 1 });
+    // }
 
-    const incrementByTen = () => {
-        setState({ count: state.count + 10 })
-    }
+    // const decrementByFive = () => {
+    //     setState({ count: state.count - 5 });
+    // }
 
-    const reset = () => {
-        setState({ count: 0 })
-    }
+    // const incrementByFive = () => {
+    //     setState({ count: state.count + 5 });
+    // }
+
+    // const decrementByTen = () => {
+    //     setState({ count: state.count - 10 });
+    // }
+
+    // const incrementByTen = () => {
+    //     setState({ count: state.count + 10 });
+    // }
+
+    // const reset = () => {
+    //     setState({ count: 0 });
+    // }
     
 
     useEffect(   
@@ -68,7 +74,7 @@ const gameOver = (winner: string) => {
         , players: chosenPlayers
         , start: start
         , end: new Date().toISOString()
-        , totalTurns: turnNumber
+        , playerPoints
     });
     nav(-2);
 }
@@ -76,7 +82,7 @@ const gameOver = (winner: string) => {
     return (
       <>
         <div
-            className='flex flex-col gap-3'
+            className='flex flex-col items-center gap-3'
         >
             {chosenPlayers.map(x => (
                 <div
@@ -90,34 +96,96 @@ const gameOver = (winner: string) => {
                         >
                             {x}
                         </h2>
-                        <div>
-                            Sider: 1 point each
-                            <button onClick={decrementByOne} className="btn btn-neutral btn-md btn-circle m-2">-1</button>
-                            <button onClick={incrementByOne} className="btn btn-secondary m-2">+1</button>
-                        </div>
-    
-                        <div>
-                            Trotter, Razorback: 5 points each
-                            <button onClick={decrementByFive} className="btn btn-neutral btn-md btn-circle m-2">-5</button>
-                            <button onClick={incrementByFive} className="btn btn-secondary m-2">+5</button>
-                        </div>
-    
-                        <div>
-                            Snouter: 10 points each
-                            <button onClick={decrementByTen} className="btn btn-neutral btn-md btn-circle m-2">-10</button>
-                            <button onClick={incrementByTen} className="btn btn-secondary m-2">+10</button>
-                        </div>
-                            <h3 className="font-weight: bold">Player 1's Total this turn: {state.count}</h3>
-                            <br></br>
-                        <div>
-                            <button onClick={reset} className="btn btn-neutral m-2">Reset</button>
-                        </div>
-                                    <p>
-                                        Put other controls here
-                                    </p>
-                                    <p>
-                                        And probably need some local state to control the controls
-                                    </p>
+
+                            <p>Points</p>
+                            <h2
+                                    className='text-4xl font-bold mx-5 min-w-10 text-right'
+                                >
+                                {
+                                    playerPoints.find(y => y[0] === x)![1]
+                                }
+                                </h2>
+                                <div className="flex gap-3 items-center mb-5"
+                                >
+                                    <h3>Sider: 1 point each</h3>
+                                    <button 
+                                        className="btn btn-neutral btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] -1 : y[1]
+                                            ])
+                                        )}>
+                                        -1
+                                    </button>
+
+                                    <button 
+                                        className="btn btn-secondary btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] +1 : y[1]
+                                            ])
+                                        )}>
+                                        +1
+                                    </button>
+                                </div>
+                                <div className="flex gap-3 items-center mb-5"
+                                >
+                                    <h3>Trotter, Razorback: 5 points each</h3>
+                                    <button 
+                                        className="btn btn-neutral btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] -5 : y[1]
+                                            ])
+                                        )}>
+                                        -5
+                                    </button>
+
+                                    <button 
+                                        className="btn btn-secondary btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] +5 : y[1]
+                                            ])
+                                        )}>
+                                        +5
+                                    </button>
+                                </div>
+                                <div className="flex gap-3 items-center mb-5"
+                                >
+                                    <h3>Snouter: 10 points each</h3>
+                                    <button 
+                                        className="btn btn-neutral btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] -10 : y[1]
+                                            ])
+                                        )}>
+                                        -10
+                                    </button>
+
+                                    <button 
+                                        className="btn btn-secondary btn-md btn-circle m-2"
+                                        onClick = {() => setPlayerPoints(
+                                            playerPoints.map (y => [
+                                                y[0]
+                                                , y[0]===x ? y[1] +10 : y[1]
+                                            ])
+                                        )}>
+                                        +10
+                                    </button>
+                                </div>
+
+
+
+
+
+
                                     <button
                                         key={x}
                                         className="btn btn-lg btn-primary"

@@ -30,7 +30,13 @@ const dummyGameResults: GameResult[] = [
       ]
       , start: "2024-02-28T18:10:32.123Z"
       , end: "2024-02-28T18:15:34.123Z"
-      , totalTurns: 4
+      , playerPoints: [
+          ["Tom", 20]
+          , ["Batu", 10]
+          , ["Julia", 10]
+          , ["Melisa", 10]
+          , ["John", 10]
+      ]
   }
   , {
       winner: "John"
@@ -42,7 +48,12 @@ const dummyGameResults: GameResult[] = [
       ]
       , start: "2024-02-28T18:20:32.123Z"
       , end: "2024-02-28T18:35:34.123Z"
-      , totalTurns: 4
+      , playerPoints: [
+        ["Batu", 10]
+        , ["Julia", 10]
+        , ["Melisa", 10]
+        , ["John", 20]
+    ]
   }  
 ];
 
