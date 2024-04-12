@@ -98,7 +98,7 @@ export const getGeneralFacts = (results: GameResult[]): GeneralFacts => {
                 : "n/a"
     };
 };
-export const getAverageGameDurationInMillisecondsByPlayerCount = (grs: GameResult[]) => {
+export const getAverageGameDurationsByPlayerCount = (grs: GameResult[]) => {
 
     // Group game results by player count, advanced reduce()...
     const grouped = grs.reduce(
@@ -128,7 +128,7 @@ export const getAverageGameDurationInMillisecondsByPlayerCount = (grs: GameResul
         .sort((a, b) => a[0] - b[0])
         .map(x => ({
             numberOfPlayers: x[0]
-            , avgGameDurationInMilliseconds: formatterDefault(getAvgGameDurationInMilliseconds(x[1])) 
+            , avgGameDuration: formatterDefault(getAvgGameDurationInMilliseconds(x[1])) 
         }))
     ;
 };
