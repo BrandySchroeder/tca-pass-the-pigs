@@ -131,26 +131,38 @@ const gameOver = (winner: string) => {
             className='flex flex-col gap-3'
         >
             {chosenPlayers.map(x => (
-                <button
-                key={x}
-                className="btn btn-lg btn-primary"
-                onClick={() => gameOver(x)}
-                >
-                    {x} Won
-                </button>
+                                <div
+                                    key={x}
+                                className='card bg-base-100 shadow-xl'
+                            >
+                                <div 
+                                    className='card-body p-3'
+                                >
+                                    <h2 className='card-title'
+                                    >
+                                        {x}
+                                    </h2>
+                                    <p>
+                                        Put other controls here
+                                    </p>
+                                    <p>
+                                        And probably need some local state to control the controls
+                                    </p>
+                                    <button
+                                        key={x}
+                                        className="btn btn-lg btn-primary"
+                                        onClick={() => gameOver(x)}
+                                    >
+                                        {x} Won
+                                    </button>
+                                </div>
+                            </div>
             ))
             }
-
-            <p
-                className="text-xs"
-            >
-                Play the game and tap the app!!
-            </p>
             <p>
                 Current Turn: 1
                 //TODO: Instead of counting each turn, change from one player's turn to the next
-            </p>
-            
+            </p>            
             <button
                 className='btn btn-link'
                 onClick={() => setTurnNumber(turnNumber + 1)}
