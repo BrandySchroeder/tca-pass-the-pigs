@@ -57,19 +57,19 @@ const gameOver = (winner: string) => {
                     <div 
                         className='card-body p-3'
                     >
-                        <h2 className='card-title'
+                        <h2 className='card-title text-2xl font-bold'
                         >
                             {x}'s Points
                         </h2>
                         <h2
-                            className='text-4xl font-bold mx-5 min-w-10 text-left'
+                            className='text-2xl mx-5 min-w-10 text-left'
                         >This Game: 
                             {
                                 playerPoints.find(y => y[0] === x)![1]
                             }
                         </h2>
                         <h2
-                            className='text-2xl font-bold mx-5 min-w-10 text-left'
+                            className='text-2xl mx-5 min-w-10 text-left'
                         >This Turn:
                             {
                                 playerPoints.find(y => y[0] === x)![1]
@@ -84,7 +84,7 @@ const gameOver = (winner: string) => {
                                         <img src={`Sider`} alt="pigs on side"/>
                                     </div>
                                 </div>
-                                    <h3>Sider: 1 point each</h3>
+                                    <h3 className='font-bold'>Sider: 1 point each</h3>
                                         <button 
                                             className="btn btn-secondary btn-md btn-circle m-2"
                                             onClick = {() => setPlayerPoints(
@@ -99,7 +99,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Trotter, Razorback: 5 points each</h3>
+                                <h3 className='font-bold'>Trotter, Razorback: 5 points each</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -114,7 +114,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Snouter: 10 points each</h3>
+                                <h3 className='font-bold'>Snouter: 10 points each</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -129,7 +129,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Leaning Jowler: 15 points each</h3>
+                                <h3 className='font-bold'>Leaning Jowler: 15 points each</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -144,7 +144,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Double Trotter, Double Razorback: 20 points</h3>
+                                <h3 className='font-bold'>Double Trotter, Double Razorback: 20 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -159,7 +159,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Double Snouter: 40 points</h3>
+                                <h3 className='font-bold'>Double Snouter: 40 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -174,7 +174,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Double Leaning Jowler: 60 points</h3>
+                                <h3 className='font-bold'>Double Leaning Jowler: 60 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -189,7 +189,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Undo</h3>
+                                <h3 className='font-bold'>Undo:</h3>
                                 <button 
                                     className="btn btn-neutral btn-md btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
