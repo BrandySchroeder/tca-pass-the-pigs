@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameResult } from './GameResults';
 import { FC, useEffect, useState } from 'react';
 
+
 interface PlayProps {
     addNewGameResult: (result: GameResult) => void;
     setTitle: (title: string) => void;
@@ -78,17 +79,22 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3>Sider: 1 point each</h3>
-                                <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
-                                    onClick = {() => setPlayerPoints(
-                                        playerPoints.map (y => [
-                                            y[0]
-                                            , y[0]===x ? y[1] +1 : y[1]
-                                        ])
-                                    )}>
-                                    +1
-                                </button>
+                                <div className="avatar">
+                                    <div className="rounded w-12 h-12">
+                                        <img src={`Sider`} alt="pigs on side"/>
+                                    </div>
+                                </div>
+                                    <h3>Sider: 1 point each</h3>
+                                        <button 
+                                            className="btn btn-secondary btn-md btn-circle m-2"
+                                            onClick = {() => setPlayerPoints(
+                                                playerPoints.map (y => [
+                                                    y[0]
+                                                    , y[0]===x ? y[1] +1 : y[1]
+                                                ])
+                                            )}>
+                                            +1
+                                        </button>
                             </div>
 
                             <div className="flex gap-3 items-center mb-5"
