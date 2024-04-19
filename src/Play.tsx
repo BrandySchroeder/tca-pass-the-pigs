@@ -61,17 +61,17 @@ const gameOver = (winner: string) => {
                         >
                             {x}'s Points
                         </h2>
-                        <h2
-                            className='text-xl mx-5 min-w-10 text-left'
-                        >This Game: 
+                        <h2 className='text-xl mx-5 min-w-10 text-left'
+                        >
+                            This Game: 
                             {
                                 playerPoints.find(y => y[0] === x)![1]
                             }
                         </h2>
 
-                        <h2
-                            className='text-xl mx-5 min-w-10 text-left'
-                        >This Turn:
+                        <h2 className='text-xl mx-5 min-w-10 text-left'
+                        >
+                            This Turn:
                             {
                                 playerPoints.find(y => y[0] === x)![1]
                             }
@@ -104,7 +104,22 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Trotter, Razorback: 5 points each</h3>
+                                <h3 className='font-bold'>Razorback: 5 points each</h3>
+                                <button 
+                                    className="btn btn-secondary btn-circle m-2"
+                                    onClick = {() => setPlayerPoints(
+                                        playerPoints.map (y => [
+                                            y[0]
+                                            , y[0]===x ? y[1] +5 : y[1]
+                                        ])
+                                    )}>
+                                    +5
+                                </button>
+                            </div>
+
+                            <div className="flex gap-3 items-center mb-5"
+                            >
+                                <h3 className='font-bold'>Trotter: 5 points each</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -149,7 +164,22 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Double Trotter, Double Razorback: 20 points</h3>
+                                <h3 className='font-bold'>Double Razorback: 20 points</h3>
+                                <button 
+                                    className="btn btn-secondary btn-circle m-2"
+                                    onClick = {() => setPlayerPoints(
+                                        playerPoints.map (y => [
+                                            y[0]
+                                            , y[0]===x ? y[1] +20 : y[1]
+                                        ])
+                                    )}>
+                                    +20
+                                </button>
+                            </div>
+
+                            <div className="flex gap-3 items-center mb-5"
+                            >
+                                <h3 className='font-bold'>Double Trotter: 20 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -238,18 +268,18 @@ const gameOver = (winner: string) => {
                             </div>
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <h3 className='font-bold'>Lose all points this turn!</h3>
                                 <button className="btn btn-md btn-oval btn-outline btn-error">
                                     Pig Out! 
                                 </button>
-                                <p>Lose all points this turn. Placeholder button - need to figure out how to track points per turn separately from points per game. Also how to track in fun facts</p>
                             </div>
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <h3 className='font-bold'>Lose all points in game!</h3>
                                 <button className="btn btn-md btn-oval btn-outline btn-error">
                                     OINKER!! 
                                 </button>
-                                <p>Lose all points in game! Placeholder button - need to figure out how to track this in fun facts. Also set it up to erase all points.</p>
                             </div>
                                 <button
                                     key={x}
