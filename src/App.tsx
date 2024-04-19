@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -17,7 +17,7 @@ import {
   , getPreviousPlayers
   , getAverageGameDurationsByPlayerCount
 } from "./GameResults";
-import { saveGameToCloud } from "./tca-cloud-api";
+import { loadGamesFromCloud, saveGameToCloud } from "./tca-cloud-api";
 
 const App = () => {
 
@@ -26,6 +26,29 @@ const App = () => {
   const [title, setTitle] = useState(AppTitle);
 
   const [chosenPlayers, setChosenPlayers] = useState<string[]>([]);
+
+  useEffect(
+    () => {
+      const init = async () => {
+        if (!ignore) {
+          const cloudGameResults = await loadGamesFromCloud(
+            "bschroeder10@madisoncollege.edu"
+            , "tca-Pass-the-Pigs-24s"
+          );
+
+          setGameResults(cloudGameResults)
+        }
+      };
+
+      let ignore = false;
+      init();
+
+      return () => {
+        ignore = true;
+      };
+    }
+    , []
+  );
 
   const addNewGameResult = async (result: GameResult) => {
 
