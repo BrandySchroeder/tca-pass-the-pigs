@@ -62,20 +62,25 @@ const gameOver = (winner: string) => {
                             {x}'s Points
                         </h2>
                         <h2
-                            className='text-2xl mx-5 min-w-10 text-left'
+                            className='text-xl mx-5 min-w-10 text-left'
                         >This Game: 
                             {
                                 playerPoints.find(y => y[0] === x)![1]
                             }
                         </h2>
+
                         <h2
-                            className='text-2xl mx-5 min-w-10 text-left'
+                            className='text-xl mx-5 min-w-10 text-left'
                         >This Turn:
                             {
                                 playerPoints.find(y => y[0] === x)![1]
                             }
                         </h2>
-                        <p>*Placeholder* Need to hook up functionality for this turn feature!</p>
+
+                        <div className="flex gap-3 items-center mb-5"
+                        >
+                            <button className="btn btn-md btn-accent btn-oval">Next Turn</button>
+                        </div>
 
                             <div className="flex gap-3 items-center mb-5"
                             >
@@ -86,7 +91,7 @@ const gameOver = (winner: string) => {
                                 </div>
                                     <h3 className='font-bold'>Sider: 1 point each</h3>
                                         <button 
-                                            className="btn btn-secondary btn-md btn-circle m-2"
+                                            className="btn btn-secondary btn-circle m-2"
                                             onClick = {() => setPlayerPoints(
                                                 playerPoints.map (y => [
                                                     y[0]
@@ -101,7 +106,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Trotter, Razorback: 5 points each</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -116,7 +121,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Snouter: 10 points each</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -131,7 +136,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Leaning Jowler: 15 points each</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -146,7 +151,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Double Trotter, Double Razorback: 20 points</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -161,7 +166,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Double Snouter: 40 points</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -176,7 +181,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Double Leaning Jowler: 60 points</h3>
                                 <button 
-                                    className="btn btn-secondary btn-md btn-circle m-2"
+                                    className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -191,7 +196,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Undo:</h3>
                                 <button 
-                                    className="btn btn-neutral btn-md btn-circle m-2"
+                                    className="btn btn-warning btn-outline btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -201,7 +206,7 @@ const gameOver = (winner: string) => {
                                     -1
                                 </button>
                                 <button 
-                                    className="btn btn-neutral btn-md btn-circle m-2"
+                                    className="btn btn-warning btn-outline btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -211,7 +216,7 @@ const gameOver = (winner: string) => {
                                     -5
                                 </button>
                                 <button 
-                                    className="btn btn-neutral btn-md btn-circle m-2"
+                                    className="btn btn-warning btn-outline btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -221,7 +226,7 @@ const gameOver = (winner: string) => {
                                     -10
                                 </button>
                                 <button 
-                                    className="btn btn-neutral btn-md btn-circle m-2"
+                                    className="btn btn-warning btn-outline btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -233,7 +238,7 @@ const gameOver = (winner: string) => {
                             </div>
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <button className="btn btn-md btn-oval btn-warning">
+                                <button className="btn btn-md btn-oval btn-outline btn-error">
                                     Pig Out! 
                                 </button>
                                 <p>Lose all points this turn. Placeholder button - need to figure out how to track points per turn separately from points per game. Also how to track in fun facts</p>
@@ -241,7 +246,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <button className="btn btn-md btn-oval btn-warning">
+                                <button className="btn btn-md btn-oval btn-outline btn-error">
                                     OINKER!! 
                                 </button>
                                 <p>Lose all points in game! Placeholder button - need to figure out how to track this in fun facts. Also set it up to erase all points.</p>
