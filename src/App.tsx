@@ -17,6 +17,7 @@ import {
   , getPreviousPlayers
   , getAverageGameDurationsByPlayerCount
 } from "./GameResults";
+import { saveGameToCloud } from "./tca-cloud-api";
 
 const dummyGameResults: GameResult[] = [
   {
@@ -67,12 +68,25 @@ const App = () => {
 
   const [chosenPlayers, setChosenPlayers] = useState<string[]>([]);
 
-  const addNewGameResult = (result: GameResult) => setGameResults( 
-  [
-    ...gameResults
-    , result
-  ]
-);
+  const addNewGameResult = async (result: GameResult) => {
+
+    //Save the game result to the Cloud.
+    await saveGameToCloud(
+      "bschroeder10@madisoncollege.edu" //hard coded for now
+      , "tca-Pass-the-Pigs-24s"
+      , result.end
+      , result
+    )
+
+    //Optimistically update the lifted state with the new game result.
+
+    setGameResults( 
+      [
+        ...gameResults
+        , result
+      ]
+    );
+  };
 
   const router = createHashRouter([
     {
