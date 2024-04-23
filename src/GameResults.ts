@@ -8,13 +8,14 @@ const formatterYMD = durationFormatter ({
 //
 //Type definitions
 //
+export type PlayerPoints = [string, {turnPoints: number, totalPoints: number}][];
 
 export type GameResult = {
     winner: string;
     players: string[];
     start: string;
     end: string;
-    playerPoints: [string, number][];
+    playerPoints: PlayerPoints;
 };
 
 export type LeaderboardEntry = {

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { GameResult } from './GameResults';
+import { GameResult, PlayerPoints } from './GameResults';
 import { FC, useEffect, useState } from 'react';
+import Sider from './Images/Sider.png'
 
 
 interface PlayProps {
@@ -23,12 +24,13 @@ export const Play: FC<PlayProps> = ({
     const [start, setStart] = useState(new Date().toISOString());
 
 //Trying Tom's code for point counter buttons - this should keep track of each player's points separately in their own cards
-    const [playerPoints, setPlayerPoints] = useState<[string, number][]>(chosenPlayers.map (x => [x, 0]));
+    const [playerPoints, setPlayerPoints] = useState<PlayerPoints>(chosenPlayers.map (x => [x, {turnPoints:0, totalPoints: 0}]));
 
     useEffect(   
         () => setTitle("Play Pass The Pigs")
          , []
     );
+
 
     const nav = useNavigate();
 
@@ -44,6 +46,11 @@ const gameOver = (winner: string) => {
     });
     nav(-2);
 }
+//Reset "points this turn" when Next Turn button is clicked
+// const resetPointsThisTurn = () => {
+//     setPlayerPoints({ 0 }); 
+// }
+
     return (
       <>
         <div
@@ -65,7 +72,7 @@ const gameOver = (winner: string) => {
                         >
                             This Game: 
                             {
-                                playerPoints.find(y => y[0] === x)![1]
+                                playerPoints.find(y => y[0] === x)![1].totalPoints
                             }
                         </h2>
 
@@ -73,20 +80,30 @@ const gameOver = (winner: string) => {
                         >
                             This Turn:
                             {
-                                playerPoints.find(y => y[0] === x)![1]
+                                playerPoints.find(y => y[0] === x)![1].turnPoints
                             }
                         </h2>
 
                         <div className="flex gap-3 items-center mb-5"
                         >
-                            <button className="btn btn-md btn-accent btn-oval">Next Turn</button>
+                            <button className="btn btn-md btn-accent btn-oval" 
+                                //onClick={resetPointsThisTurn}
+                                onClick = {() => setPlayerPoints(
+                                    playerPoints.map (y => [
+                                        y[0]
+                                        , {turnPoints: y[0]===x ? 0 : y[1].turnPoints, totalPoints: y[0]===x ? y[1].totalPoints + y[1].turnPoints : y[1].totalPoints}
+                                    ])
+                                )}>
+                            
+                                Next Turn
+                            </button>
                         </div>
 
                             <div className="flex gap-3 items-center mb-5"
                             >
                                 <div className="avatar">
                                     <div className="rounded w-12 h-12">
-                                        <img src={`Sider`} alt="pigs on side"/>
+                                        <img src= { Sider } alt="pigs on side"/>
                                     </div>
                                 </div>
                                     <h3 className='font-bold'>Sider: 1 point each</h3>
@@ -95,14 +112,14 @@ const gameOver = (winner: string) => {
                                             onClick = {() => setPlayerPoints(
                                                 playerPoints.map (y => [
                                                     y[0]
-                                                    , y[0]===x ? y[1] +1 : y[1]
+                                                    , {turnPoints: y[0]===x ? y[1].turnPoints +1 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                                 ])
                                             )}>
                                             +1
                                         </button>
                             </div>
 
-                            <div className="flex gap-3 items-center mb-5"
+                            {/* <div className="flex gap-3 items-center mb-5"
                             >
                                 <h3 className='font-bold'>Razorback: 5 points each</h3>
                                 <button 
@@ -280,7 +297,7 @@ const gameOver = (winner: string) => {
                                 <button className="btn btn-md btn-oval btn-outline btn-error">
                                     OINKER!! 
                                 </button>
-                            </div>
+                            </div> */}
                                 <button
                                     key={x}
                                     className="btn btn-lg btn-primary"
