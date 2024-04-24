@@ -46,11 +46,6 @@ const gameOver = (winner: string) => {
     });
     nav(-2);
 }
-//Reset "points this turn" when Next Turn button is clicked
-// const resetPointsThisTurn = () => {
-//     setPlayerPoints({ 0 }); 
-// }
-
     return (
       <>
         <div
@@ -94,8 +89,9 @@ const gameOver = (winner: string) => {
                                         , {turnPoints: y[0]===x ? 0 : y[1].turnPoints, totalPoints: y[0]===x ? y[1].totalPoints + y[1].turnPoints : y[1].totalPoints}
                                     ])
                                 )}>
-                            
+
                                 Next Turn
+                                
                             </button>
                         </div>
 
@@ -119,7 +115,7 @@ const gameOver = (winner: string) => {
                                         </button>
                             </div>
 
-                            {/* <div className="flex gap-3 items-center mb-5"
+                            <div className="flex gap-3 items-center mb-5"
                             >
                                 <h3 className='font-bold'>Razorback: 5 points each</h3>
                                 <button 
@@ -127,7 +123,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +5 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +5 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +5
@@ -142,7 +138,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +5 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +5 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +5
@@ -157,7 +153,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +10 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +10 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +10
@@ -172,7 +168,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +15 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +15 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +15
@@ -187,7 +183,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +20 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +20 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +20
@@ -202,7 +198,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +20 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +20 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +20
@@ -217,7 +213,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +40 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +40 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +40
@@ -232,7 +228,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] +60 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints +60 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     +60
@@ -247,7 +243,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] -1 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints -1 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     -1
@@ -257,7 +253,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] -5 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints -5 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     -5
@@ -267,7 +263,7 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] -10 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints -10 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     -10
@@ -277,18 +273,22 @@ const gameOver = (winner: string) => {
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
-                                            , y[0]===x ? y[1] -20 : y[1]
+                                            , {turnPoints: y[0]===x ? y[1].turnPoints -20 : y[1].turnPoints, totalPoints: y[1].totalPoints}
                                         ])
                                     )}>
                                     -20
                                 </button>
                             </div>
+                            
                             <div className="flex gap-3 items-center mb-5"
                             >
                                 <h3 className='font-bold'>Lose all points this turn!</h3>
-                                <button className="btn btn-md btn-oval btn-outline btn-error">
+                                <button 
+                                className="btn btn-md btn-oval btn-outline btn-error"
+                                >
                                     Pig Out! 
                                 </button>
+                                
                             </div>
 
                             <div className="flex gap-3 items-center mb-5"
@@ -297,7 +297,7 @@ const gameOver = (winner: string) => {
                                 <button className="btn btn-md btn-oval btn-outline btn-error">
                                     OINKER!! 
                                 </button>
-                            </div> */}
+                            </div> 
                                 <button
                                     key={x}
                                     className="btn btn-lg btn-primary"
@@ -307,8 +307,10 @@ const gameOver = (winner: string) => {
                                 </button>
                     </div>
                 </div>
+               
             ))
             }
+            
         </div>
         </>
     );
