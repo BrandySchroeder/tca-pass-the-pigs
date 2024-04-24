@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/tca-pass-the-pigs/static/css/main.7720a692.css",
-    "main.js": "/tca-pass-the-pigs/static/js/main.d9863d63.js",
+    "main.css": "/tca-pass-the-pigs/static/css/main.f0d7f7d0.css",
+    "main.js": "/tca-pass-the-pigs/static/js/main.16b3bac2.js",
     "static/js/592.67750ece.chunk.js": "/tca-pass-the-pigs/static/js/592.67750ece.chunk.js",
+    "static/media/Sider.png": "/tca-pass-the-pigs/static/media/Sider.db422bde444d4c37fd6e.png",
     "index.html": "/tca-pass-the-pigs/index.html",
-    "main.7720a692.css.map": "/tca-pass-the-pigs/static/css/main.7720a692.css.map",
-    "main.d9863d63.js.map": "/tca-pass-the-pigs/static/js/main.d9863d63.js.map",
+    "main.f0d7f7d0.css.map": "/tca-pass-the-pigs/static/css/main.f0d7f7d0.css.map",
+    "main.16b3bac2.js.map": "/tca-pass-the-pigs/static/js/main.16b3bac2.js.map",
     "592.67750ece.chunk.js.map": "/tca-pass-the-pigs/static/js/592.67750ece.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7720a692.css",
-    "static/js/main.d9863d63.js"
+    "static/css/main.f0d7f7d0.css",
+    "static/js/main.16b3bac2.js"
   ]
 }
