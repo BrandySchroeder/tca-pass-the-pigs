@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { GameResult, PlayerPoints } from './GameResults';
 import { FC, useEffect, useState } from 'react';
-import Sider from './Images/Sider.png'
+import Sider from './Images/Sider.png';
+import LeaningJowler from './Images/LeaningJowler.png';
+import Razorback from './Images/Razorback.png';
+import Snouter from './Images/Snouter.png'
 
 
 interface PlayProps {
@@ -102,7 +105,7 @@ const gameOver = (winner: string) => {
                                         <img src= { Sider } alt="pigs on side"/>
                                     </div>
                                 </div>
-                                    <h3 className='font-bold'>Sider: 1 point each</h3>
+                                    <h3 className='font-bold'>Sider: 1 point</h3>
                                         <button 
                                             className="btn btn-secondary btn-circle m-2"
                                             onClick = {() => setPlayerPoints(
@@ -117,7 +120,12 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Razorback: 5 points each</h3>
+                                 <div className="avatar">
+                                    <div className="rounded w-12 h-12">
+                                        <img src= { Razorback } alt="pigs on side"/>
+                                    </div>
+                                </div>
+                                <h3 className='font-bold'>Razorback: 5 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -132,7 +140,7 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Trotter: 5 points each</h3>
+                                <h3 className='font-bold'>Trotter: 5 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -147,7 +155,12 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Snouter: 10 points each</h3>
+                                 <div className="avatar">
+                                    <div className="rounded w-12 h-12">
+                                        <img src= { Snouter } alt="pigs on side"/>
+                                    </div>
+                                </div>
+                                <h3 className='font-bold'>Snouter: 10 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -162,7 +175,12 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                <h3 className='font-bold'>Leaning Jowler: 15 points each</h3>
+                                <div className="avatar">
+                                    <div className="rounded w-12 h-12">
+                                        <img src= { LeaningJowler } alt="pigs on side"/>
+                                    </div>
+                                </div>
+                                <h3 className='font-bold'>Leaning Jowler: 15 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
@@ -285,10 +303,9 @@ const gameOver = (winner: string) => {
                                 <h3 className='font-bold'>Lose all points this turn!</h3>
                                 <button 
                                 className="btn btn-md btn-oval btn-outline btn-error"
-                                >
+                                >                               
                                     Pig Out! 
-                                </button>
-                                
+                                </button>                               
                             </div>
 
                             <div className="flex gap-3 items-center mb-5"
