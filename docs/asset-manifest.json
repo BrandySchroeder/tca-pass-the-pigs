@@ -1,16 +1,19 @@
 {
   "files": {
     "main.css": "/tca-pass-the-pigs/static/css/main.f0d7f7d0.css",
-    "main.js": "/tca-pass-the-pigs/static/js/main.16b3bac2.js",
+    "main.js": "/tca-pass-the-pigs/static/js/main.8e5b0c48.js",
     "static/js/592.67750ece.chunk.js": "/tca-pass-the-pigs/static/js/592.67750ece.chunk.js",
-    "static/media/Sider.png": "/tca-pass-the-pigs/static/media/Sider.db422bde444d4c37fd6e.png",
+    "static/media/Sider.png": "/tca-pass-the-pigs/static/media/Sider.0cc44270fada20d03f3e.png",
+    "static/media/Razorback.png": "/tca-pass-the-pigs/static/media/Razorback.84d26812372f6020d771.png",
+    "static/media/Snouter.png": "/tca-pass-the-pigs/static/media/Snouter.88fbaa4646bf081f33ca.png",
+    "static/media/LeaningJowler.png": "/tca-pass-the-pigs/static/media/LeaningJowler.4748fd8992733ea1f343.png",
     "index.html": "/tca-pass-the-pigs/index.html",
     "main.f0d7f7d0.css.map": "/tca-pass-the-pigs/static/css/main.f0d7f7d0.css.map",
-    "main.16b3bac2.js.map": "/tca-pass-the-pigs/static/js/main.16b3bac2.js.map",
+    "main.8e5b0c48.js.map": "/tca-pass-the-pigs/static/js/main.8e5b0c48.js.map",
     "592.67750ece.chunk.js.map": "/tca-pass-the-pigs/static/js/592.67750ece.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f0d7f7d0.css",
-    "static/js/main.16b3bac2.js"
+    "static/js/main.8e5b0c48.js"
   ]
 }
