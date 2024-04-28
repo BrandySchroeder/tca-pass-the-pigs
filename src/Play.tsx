@@ -303,15 +303,29 @@ const gameOver = (winner: string) => {
                                 <h3 className='font-bold'>Lose all points this turn!</h3>
                                 <button 
                                 className="btn btn-md btn-oval btn-outline btn-error"
+                                onClick = {() => setPlayerPoints(
+                                    playerPoints.map (y => [
+                                        y[0]
+                                        , {turnPoints: 0, totalPoints: y[0]===x ? y[1].totalPoints : y[1].totalPoints}
+                                    ])
+                                )}
                                 >                               
                                     Pig Out! 
                                 </button>                               
                             </div>
-
+                            {/* const [playerPoints, setPlayerPoints] = useState<PlayerPoints>(chosenPlayers.map (x => [x, {turnPoints:0, totalPoints: 0}])); */}
                             <div className="flex gap-3 items-center mb-5"
                             >
                                 <h3 className='font-bold'>Lose all points in game!</h3>
-                                <button className="btn btn-md btn-oval btn-outline btn-error">
+                                <button 
+                                className="btn btn-md btn-oval btn-outline btn-error"
+                                onClick = {() => setPlayerPoints(
+                                    playerPoints.map (y => [
+                                        y[0]
+                                        , {turnPoints: 0, totalPoints: 0}
+                                    ])
+                                )}
+                                >
                                     OINKER!! 
                                 </button>
                             </div> 
