@@ -2,9 +2,16 @@ import { useNavigate } from 'react-router-dom';
 import { GameResult, PlayerPoints } from './GameResults';
 import { FC, useEffect, useState } from 'react';
 import Sider from './Images/Sider.png';
+import Trotter from './Images/Trotter.png';
 import LeaningJowler from './Images/LeaningJowler.png';
 import Razorback from './Images/Razorback.png';
-import Snouter from './Images/Snouter.png'
+import Snouter from './Images/Snouter.png';
+import DoubleTrotter from './Images/DoubleTrotter.png';
+import DoubleLeaningJowler from './Images/DoubleLeaningJowler.png';
+import DoubleRazorback from './Images/DoubleRazorback.png';
+import DoubleSnouter from './Images/DoubleSnouter.png';
+import PigOut from './Images/PigOut.png';
+import Oinker from './Images/Oinker.png';
 
 
 interface PlayProps {
@@ -101,7 +108,7 @@ const gameOver = (winner: string) => {
                             <div className="flex gap-3 items-center mb-5"
                             >
                                 <div className="avatar">
-                                    <div className="rounded w-12 h-12">
+                                    <div className="rounded w-20 h-12">
                                         <img src= { Sider } alt="pigs on side"/>
                                     </div>
                                 </div>
@@ -122,7 +129,7 @@ const gameOver = (winner: string) => {
                             >
                                  <div className="avatar">
                                     <div className="rounded w-12 h-12">
-                                        <img src= { Razorback } alt="pigs on side"/>
+                                        <img src= { Razorback } alt="pigs on back"/>
                                     </div>
                                 </div>
                                 <h3 className='font-bold'>Razorback: 5 points</h3>
@@ -140,6 +147,11 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-12 h-12">
+                                        <img src= { Trotter } alt="pigs on all four feet"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Trotter: 5 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
@@ -155,9 +167,9 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
-                                 <div className="avatar">
+                                <div className="avatar">
                                     <div className="rounded w-12 h-12">
-                                        <img src= { Snouter } alt="pigs on side"/>
+                                        <img src= { Snouter } alt="pigs on snout"/>
                                     </div>
                                 </div>
                                 <h3 className='font-bold'>Snouter: 10 points</h3>
@@ -177,7 +189,7 @@ const gameOver = (winner: string) => {
                             >
                                 <div className="avatar">
                                     <div className="rounded w-12 h-12">
-                                        <img src= { LeaningJowler } alt="pigs on side"/>
+                                        <img src= { LeaningJowler } alt="pigs on ear and snout"/>
                                     </div>
                                 </div>
                                 <h3 className='font-bold'>Leaning Jowler: 15 points</h3>
@@ -195,6 +207,11 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { DoubleRazorback } alt="both pigs on backs"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Double Razorback: 20 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
@@ -210,6 +227,11 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { DoubleTrotter } alt="both pigs on all fours"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Double Trotter: 20 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
@@ -225,6 +247,11 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { DoubleSnouter } alt="both pigs on snouts"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Double Snouter: 40 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
@@ -240,6 +267,11 @@ const gameOver = (winner: string) => {
 
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { DoubleLeaningJowler } alt="both pigs on ears"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Double Leaning Jowler: 60 points</h3>
                                 <button 
                                     className="btn btn-secondary btn-circle m-2"
@@ -300,6 +332,11 @@ const gameOver = (winner: string) => {
                             
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { PigOut } alt="opposite siders"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Lose all points this turn!</h3>
                                 <button 
                                 className="btn btn-md btn-oval btn-outline btn-error"
@@ -313,9 +350,14 @@ const gameOver = (winner: string) => {
                                     Pig Out! 
                                 </button>                               
                             </div>
-                            {/* const [playerPoints, setPlayerPoints] = useState<PlayerPoints>(chosenPlayers.map (x => [x, {turnPoints:0, totalPoints: 0}])); */}
+    
                             <div className="flex gap-3 items-center mb-5"
                             >
+                                <div className="avatar">
+                                    <div className="rounded w-20 h-12">
+                                        <img src= { Oinker } alt="pigs touching"/>
+                                    </div>
+                                </div>
                                 <h3 className='font-bold'>Lose all points in game!</h3>
                                 <button 
                                 className="btn btn-md btn-oval btn-outline btn-error"
