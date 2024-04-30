@@ -58,17 +58,8 @@ const gameOver = (winner: string) => {
 }
     return (
       <>
-      {/* <div className="collapse collapse-arrow bg-base-200">
-        <input type="radio" name="my-accordion-2" defaultChecked /> 
-        <div className="collapse-title text-xl font-medium">
-            Click to open this one and close others
-        </div>
-        <div className="collapse-content"> 
-            <p>hello</p>
-        </div>
-    </div> */}
         <div
-            className='flex flex-col items-center gap-3'
+            className='flex flex-col items-center bg-base-100 gap-3'
         >
             {chosenPlayers.map(x => (
                 <div
@@ -84,15 +75,15 @@ const gameOver = (winner: string) => {
                             {x}'s Points
                         </h2>
                         <div className="collapse-content"> 
-                        <h2 className='text-xl mx-5 min-w-10 text-left'
+                        <h2 className='text-xl mx-5 min-w-10 text-left font-bold'
                         >
-                            This Game: 
+                            This Game:
                             {
                                 playerPoints.find(y => y[0] === x)![1].totalPoints
                             }
                         </h2>
 
-                        <h2 className='text-xl mx-5 min-w-10 text-left'
+                        <h2 className='text-xl mx-5 mt-3 min-w-10 text-left font-bold'
                         >
                             This Turn:
                             {
@@ -102,7 +93,7 @@ const gameOver = (winner: string) => {
 
                         <div className="flex gap-3 items-center mb-5"
                         >
-                            <button className="btn btn-md btn-accent btn-oval" 
+                            <button className="btn btn-block btn-accent mt-3 text-lg btn-oval" 
                                 //onClick={resetPointsThisTurn}
                                 onClick = {() => setPlayerPoints(
                                     playerPoints.map (y => [
@@ -300,7 +291,7 @@ const gameOver = (winner: string) => {
                             >
                                 <h3 className='font-bold'>Undo:</h3>
                                 <button 
-                                    className="btn btn-warning btn-outline btn-circle m-2"
+                                    className="btn btn-warning btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -310,7 +301,7 @@ const gameOver = (winner: string) => {
                                     -1
                                 </button>
                                 <button 
-                                    className="btn btn-warning btn-outline btn-circle m-2"
+                                    className="btn btn-warning btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -320,7 +311,7 @@ const gameOver = (winner: string) => {
                                     -5
                                 </button>
                                 <button 
-                                    className="btn btn-warning btn-outline btn-circle m-2"
+                                    className="btn btn-warning btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -330,7 +321,7 @@ const gameOver = (winner: string) => {
                                     -10
                                 </button>
                                 <button 
-                                    className="btn btn-warning btn-outline btn-circle m-2"
+                                    className="btn btn-warning btn-circle m-2"
                                     onClick = {() => setPlayerPoints(
                                         playerPoints.map (y => [
                                             y[0]
@@ -348,9 +339,9 @@ const gameOver = (winner: string) => {
                                         <img src= { PigOut } alt="opposite siders"/>
                                     </div>
                                 </div>
-                                <h3 className='font-bold'>Lose all points this turn!</h3>
+                                
                                 <button 
-                                className="btn btn-md btn-oval btn-outline btn-error"
+                                className="btn btn-md btn-oval btn-error"
                                 onClick = {() => setPlayerPoints(
                                     playerPoints.map (y => [
                                         y[0]
@@ -359,7 +350,8 @@ const gameOver = (winner: string) => {
                                 )}
                                 >                               
                                     Pig Out! 
-                                </button>                               
+                                </button> 
+                                <h3 className='font-bold'>Lose all points this turn!</h3>                              
                             </div>
     
                             <div className="flex gap-3 items-center mb-5"
@@ -369,9 +361,9 @@ const gameOver = (winner: string) => {
                                         <img src= { Oinker } alt="pigs touching"/>
                                     </div>
                                 </div>
-                                <h3 className='font-bold'>Lose all points in game!</h3>
+                                
                                 <button 
-                                className="btn btn-md btn-oval btn-outline btn-error"
+                                className="btn btn-md btn-oval btn-error"
                                 onClick = {() => setPlayerPoints(
                                     playerPoints.map (y => [
                                         y[0]
@@ -381,13 +373,14 @@ const gameOver = (winner: string) => {
                                 >
                                     OINKER!! 
                                 </button>
+                                <h3 className='font-bold'>Lose all points in game!</h3>
                             </div> 
                                 <button
                                     key={x}
-                                    className="btn btn-lg btn-primary"
+                                    className="btn btn-block text-xl btn-primary"
                                     onClick={() => gameOver(x)}
                                 >
-                                    {x} Won
+                                    {x} Won!
                                 </button>
                     </div>
                 </div>
