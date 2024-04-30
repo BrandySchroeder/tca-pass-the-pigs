@@ -58,6 +58,15 @@ const gameOver = (winner: string) => {
 }
     return (
       <>
+      {/* <div className="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" defaultChecked /> 
+        <div className="collapse-title text-xl font-medium">
+            Click to open this one and close others
+        </div>
+        <div className="collapse-content"> 
+            <p>hello</p>
+        </div>
+    </div> */}
         <div
             className='flex flex-col items-center gap-3'
         >
@@ -67,12 +76,14 @@ const gameOver = (winner: string) => {
                     className='card bg-base-100 shadow-xl'
                 >
                     <div 
-                        className='card-body p-3'
+                        className='collapse collapse-arrow card-body p-3'
                     >
-                        <h2 className='card-title text-2xl font-bold'
+                        <input type="radio" name="my-accordion-2" defaultChecked /> 
+                        <h2 className='collapse-title card-title text-2xl font-bold'
                         >
                             {x}'s Points
                         </h2>
+                        <div className="collapse-content"> 
                         <h2 className='text-xl mx-5 min-w-10 text-left'
                         >
                             This Game: 
@@ -380,7 +391,7 @@ const gameOver = (winner: string) => {
                                 </button>
                     </div>
                 </div>
-               
+             </div>  
             ))
             }
             
