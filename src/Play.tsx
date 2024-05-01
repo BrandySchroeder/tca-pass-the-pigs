@@ -64,7 +64,7 @@ const gameOver = (winner: string) => {
             {chosenPlayers.map(x => (
                 <div
                     key={x}
-                    className='card bg-base-100 shadow-xl'
+                    className='card bg-base-100 max-w-screen shadow-xl'
                 >
                     <div 
                         className='collapse collapse-arrow card-body p-3'
@@ -77,7 +77,7 @@ const gameOver = (winner: string) => {
                         <div className="collapse-content"> 
                         <h2 className='text-xl mx-5 min-w-10 text-left font-bold'
                         >
-                            This Game:
+                            This Game: {' '}
                             {
                                 playerPoints.find(y => y[0] === x)![1].totalPoints
                             }
@@ -85,7 +85,7 @@ const gameOver = (winner: string) => {
 
                         <h2 className='text-xl mx-5 mt-3 min-w-10 text-left font-bold'
                         >
-                            This Turn:
+                            This Turn: {' '}
                             {
                                 playerPoints.find(y => y[0] === x)![1].turnPoints
                             }
@@ -106,7 +106,7 @@ const gameOver = (winner: string) => {
                                 
                             </button>
                         </div>
-
+                                
                             <div className="flex gap-3 items-center mb-5"
                             >
                                 <div className="avatar">
@@ -116,7 +116,7 @@ const gameOver = (winner: string) => {
                                 </div>
                                     <h3 className='font-bold'>Sider: 1 point</h3>
                                         <button 
-                                            className="btn btn-secondary btn-circle m-2"
+                                            className="btn btn-oval btn-md btn-secondary m-2"
                                             onClick = {() => setPlayerPoints(
                                                 playerPoints.map (y => [
                                                     y[0]
