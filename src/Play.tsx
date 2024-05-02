@@ -72,9 +72,11 @@ const gameOver = (winner: string) => {
                         <input type="radio" name="my-accordion-2" defaultChecked /> 
                         <h2 className='collapse-title card-title text-2xl font-bold'
                         >
-                            {x}'s Points
+                            {x}'s Points: {' '} {
+                                playerPoints.find(y => y[0] === x)![1].totalPoints
+                            }
                         </h2>
-                        <div className="collapse-content"> 
+                        <div className="collapse-content">
                         <h2 className='text-xl mx-5 min-w-10 text-left font-bold'
                         >
                             This Game: {' '}
@@ -82,7 +84,7 @@ const gameOver = (winner: string) => {
                                 playerPoints.find(y => y[0] === x)![1].totalPoints
                             }
                         </h2>
-
+                        
                         <h2 className='text-xl mx-5 mt-3 min-w-10 text-left font-bold'
                         >
                             This Turn: {' '}
