@@ -349,8 +349,7 @@ const gameOver = (winner: string) => {
                                         y[0]
                                         , {turnPoints: 0, totalPoints: y[0]===x ? y[1].totalPoints : y[1].totalPoints}
                                     ])
-                                )}
-                                >                               
+                                )}>                               
                                     Pig Out! 
                                 </button> 
                                 <h3 className='font-bold'>Lose all points this turn!</h3>                              
@@ -369,7 +368,7 @@ const gameOver = (winner: string) => {
                                 onClick = {() => setPlayerPoints(
                                     playerPoints.map (y => [
                                         y[0]
-                                        , {turnPoints: 0, totalPoints: 0}
+                                        , {turnPoints: 0, totalPoints: y[0]===x ? 0 : y[1].totalPoints}
                                     ])
                                 )}
                                 >
