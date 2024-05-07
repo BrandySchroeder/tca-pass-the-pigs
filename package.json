@@ -2,7 +2,7 @@
   "name": "tca-pass-the-pigs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://2024-spring-adv-fe.github.io/tca-pass-the-pigs",
+  "homepage": "https://BrandySchroeder.github.io/tca-pass-the-pigs",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "^3.556.0",
     "@testing-library/jest-dom": "^5.17.0",
